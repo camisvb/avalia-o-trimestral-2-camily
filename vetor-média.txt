@@ -1,0 +1,34 @@
+﻿using System;
+
+class ProgramaDaGuilda
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Quantas habilidades o herói possui? ");
+        int quantidade = int.Parse(Console.ReadLine());
+
+        double[] poderesDasHabilidades = new double[quantidade];
+
+        for (int i = 0; i < poderesDasHabilidades.Length; i++)
+        {
+            Console.Write($"Digite o valor da habilidade {i + 1}: ");
+            poderesDasHabilidades[i] = double.Parse(Console.ReadLine());
+        }
+
+        double mediaDePoder = CalcularMedia(poderesDasHabilidades);
+
+        Console.WriteLine($"\nA média de poder das habilidades é: {mediaDePoder:F2}");
+    }
+
+    static double CalcularMedia(double[] valores)
+    {
+        double somaTotal = 0;
+
+        for (int i = 0; i < valores.Length; i++)
+        {
+            somaTotal += valores[i];
+        }
+
+        return somaTotal / valores.Length;
+    }
+}
