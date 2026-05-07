@@ -1,0 +1,43 @@
+﻿Console.OutputEncoding = System.Text.Encoding.UTF8;
+Console.WriteLine("Iniciando Cálculo de Matrizes...");
+
+int[,] vetA = {
+    { 1, 2, 3 },
+    { 4, 5, 6 },
+    { 7, 8, 9 }
+};
+
+int[,] vetB = {
+    { 9, 8, 7 },
+    { 6, 5, 4 },
+    { 3, 2, 1 }
+};
+
+int linhasA = vetA.GetLength(0);
+int colunasA = vetA.GetLength(1);
+int colunasB = vetB.GetLength(1);
+int[,] matrizC = new int[linhasA, colunasB];
+
+for (int i = 0; i < linhasA; i++)
+{
+    for (int j = 0; j < colunasB; j++)
+    {
+        int soma = 0;
+        for (int k = 0; k < colunasA; k++)
+        {
+            soma += vetA[i, k] * vetB[k, j];
+        }
+        matrizC[i, j] = soma;
+    }
+}
+
+Console.WriteLine("\nMatriz Resultante (C = A × B):");
+for (int i = 0; i < matrizC.GetLength(0); i++)
+{
+    Console.Write("[ ");
+    for (int j = 0; j < matrizC.GetLength(1); j++)
+    {
+        Console.Write($"{matrizC[i, j]}\t");
+    }
+    Console.WriteLine("]");
+}
